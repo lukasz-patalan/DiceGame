@@ -4,11 +4,14 @@ import './App.css';
 import { Interface } from "./Interface"
 import { VisualResultsAI } from "./VisualResultsAI"
 import { VisualResultsYou } from "./VisualResultsYou"
-
+import { Ranking } from "./Ranking"
 class App extends React.Component {
+  draws = []
+  losses = []
+  wins = []
   state = {
     games: 0,
-    yourChoice: null,
+    yourChoice: "",
     AIChoice: null,
     one: "https://game-icons.net/icons/ffffff/000000/1x1/delapouite/dice-six-faces-one.svg",
     two: "https://game-icons.net/icons/ffffff/000000/1x1/delapouite/dice-six-faces-two.svg",
@@ -29,27 +32,35 @@ class App extends React.Component {
       games: this.state.games + 1
     })
 
+
     this.AIChoice()
 
 
   }
 
   clearState = () => {
+    this.losses = []
+    this.wins = []
+    this.draws = []
     this.setState({
-      yourChoice: null,
+      yourChoice: "",
       AIChoice: null,
       games: 0
     })
   }
 
 
+
   render() {
+
     return <>
-      <Interface games={this.state.games} wins={this.state.wins} losses={this.state.losses} clearState={this.clearState} startGame={this.startGame} yourChoice={this.state.yourChoice} AIChoice={this.state.AIChoice} />
+
+      <Interface games={this.state.games} clearState={this.clearState} startGame={this.startGame} yourChoice={this.state.yourChoice} AIChoice={this.state.AIChoice} />
       <div className="effects">
         <VisualResultsYou allstates={this.state} /><VisualResultsAI allstates={this.state} />
       </div>
       <Game results={this.state} />
+      <Ranking wins={this.wins} losses={this.losses} draws={this.draws} yourChoice={this.state.yourChoice} AIChoice={this.state.AIChoice} />
 
     </>;
   }

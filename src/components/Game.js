@@ -1,6 +1,7 @@
 import React from "react"
 import "./Game.css"
 export const Game = (props) => {
+
     const { yourChoice, AIChoice } = props.results
 
     if (yourChoice > AIChoice) {
@@ -11,7 +12,7 @@ export const Game = (props) => {
 
         return <h1 className="lost">You Lost!</h1>
 
-    } else if (AIChoice === null && yourChoice === null) {
+    } else if (AIChoice === null && yourChoice === "") {
         return <h1>Start Game!</h1>
 
     }

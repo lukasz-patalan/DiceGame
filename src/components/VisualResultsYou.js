@@ -4,17 +4,17 @@ import "./results.css"
 export const VisualResultsYou = (props) => {
     const { one, two, three, four, five, six, yourChoice } = props.allstates
     if (yourChoice === 1) {
-        return <div className="result"><p>You:</p> <img width="50%" src={one} /></div>
+        return <div className="result"><p>You:</p> <img alt="dice" width="50%" src={one} /></div>
     } else if (yourChoice === 2) {
-        return <div className="result"><p>You:</p> <img width="50%" src={two} /></div>
+        return <div className="result"><p>You:</p> <img alt="dice" width="50%" src={two} /></div>
     } else if (yourChoice === 3) {
-        return <div className="result"><p>You:</p> <img width="50%" src={three} /></div>
+        return <div className="result"><p>You:</p> <img alt="dice" width="50%" src={three} /></div>
     } else if (yourChoice === 4) {
-        return <div className="result"><p>You:</p> <img width="50%" src={four} /></div>
+        return <div className="result"><p>You:</p> <img alt="dice" width="50%" src={four} /></div>
     } else if (yourChoice === 5) {
-        return <div className="result"><p>You:</p> <img width="50%" src={five} /></div>
+        return <div className="result"><p>You:</p> <img alt="dice" width="50%" src={five} /></div>
     } else if (yourChoice === 6) {
-        return <div className="result"><p>You:</p> <img width="50%" src={six} /></div>
+        return <div className="result"><p>You:</p> <img alt="dice" width="50%" src={six} /></div>
     } else {
         return null
     }
